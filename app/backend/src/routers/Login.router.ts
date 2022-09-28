@@ -1,4 +1,5 @@
 import * as express from 'express';
+import LoginController from '../controller/Login.controller';
 import ValidateLogin from '../middlewares/validate.login';
 
 export default class RouterLogin {
@@ -12,6 +13,7 @@ export default class RouterLogin {
       .post(
         ValidateLogin.validateEmail,
         ValidateLogin.validadePassword,
+        LoginController.createToken,
       );
   }
 }
