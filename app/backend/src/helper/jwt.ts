@@ -12,10 +12,7 @@ const createToken = async (email: string) => {
     id,
   };
 
-  const options = {
-    expiresIn: '10d',
-  };
-  return jwt.sign(payload, secret, options);
+  return jwt.sign(payload, secret);
 };
 
 const ValidateToken = (token: string) => {
