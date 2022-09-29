@@ -1,25 +1,31 @@
 import * as jwt from 'jsonwebtoken';
-import { UserInterface, UserVerifyToken } from '../interface/User.interface';
+import LoginService from '../service/Login.service';
+import { UserInterface } from '../interface/User.interface';
 
 const secret = process.env.JWT_SECRET || 'jwt_secret';
 
-const createToken = (user: UserInterface) => {
+const createToken = async (email: string) => {
+  const { role, username, id } = await LoginService.findUser(email) as UserInterface;
   const payload = {
-    user,
+    role,
+    username,
+    id,
   };
+
   const options = {
     expiresIn: '10d',
   };
   return jwt.sign(payload, secret, options);
 };
 
-const validateService = (token: string) => {
+const ValidateToken = (token: string) => {
   try {
     const decoded = jwt.verify(token, secret);
-    return decoded as UserVerifyToken;
+
+    return decoded;
   } catch (err) {
     return false;
   }
 };
 
-export { createToken, validateService };
+export { createToken, ValidateToken };

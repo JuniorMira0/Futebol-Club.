@@ -9,6 +9,13 @@ export default class RouterLogin {
     this.router = express.Router();
 
     this.router
+      .route('/login/validate')
+      .get(
+        ValidateLogin.ValidateToken,
+        LoginController.UserRole,
+      );
+
+    this.router
       .route('/login')
       .post(
         ValidateLogin.validateEmail,
