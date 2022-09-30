@@ -8,15 +8,15 @@ const modelsConnect = [
 ];
 
 export default class MatchesService {
-  static async getAll(inProgess: string) {
-    if (!inProgess) {
+  static async getAll(inProgress: string) {
+    if (!inProgress) {
       const match = await MatchesModel.findAll({
         attributes: { exclude: ['home_team', 'away_team'] },
         include: modelsConnect,
       });
       return match;
     }
-    const bool = JSON.parse(inProgess);
+    const bool = JSON.parse(inProgress);
     const matchFiltered = await MatchesModel.findAll({
       attributes: { exclude: ['home_team', 'away_team'] },
       where: { inProgress: bool },
