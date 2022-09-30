@@ -1,7 +1,7 @@
 import * as express from 'express';
-import ValidateLogin from '../middlewares/validate.login';
 
 import MatchesController from '../controller/Matches.controller';
+import ValidateMatch from '../middlewares/validate.matches';
 
 export default class RouterMatches {
   public router: express.Router;
@@ -13,7 +13,8 @@ export default class RouterMatches {
       .route('/matches')
       .get(MatchesController.getAll)
       .post(
-        ValidateLogin.ValidateToken,
+        ValidateMatch.validateTokenMatch,
+        ValidateMatch.validateCreate,
         MatchesController.create,
       );
 
