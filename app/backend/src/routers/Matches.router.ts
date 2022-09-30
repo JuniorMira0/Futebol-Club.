@@ -19,6 +19,12 @@ export default class RouterMatches {
       );
 
     this.router
+      .route('/matches/:id')
+      .patch(
+        MatchesController.update,
+      );
+
+    this.router
       .route('/matches/:id/finish')
       .patch(MatchesController.finish);
   }
