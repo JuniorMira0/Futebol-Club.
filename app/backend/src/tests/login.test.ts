@@ -13,7 +13,7 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('Teste de integração: Login', () => {
+describe('Integration test: Login', () => {
 
   let chaiHttpResponse: Response;
 
@@ -27,7 +27,7 @@ describe('Teste de integração: Login', () => {
     (Users.findOne as sinon.SinonStub).restore();
   })
 
-  it('Verifica se é possivel fazer login com sucesso', async () => {
+  it('Should login successfully', async () => {
     chaiHttpResponse = await chai.request(app).post('/login').send(userLoginBody);
 
     expect(chaiHttpResponse).to.have.status(200);
@@ -35,7 +35,7 @@ describe('Teste de integração: Login', () => {
     expect(chaiHttpResponse.body).to.have.property('token');
   });
 
-  it('Verifica se é possivel fazer login com email invalido', async () => {
+  it('Checks if it is possible to login with invalid email', async () => {
     chaiHttpResponse = await chai.request(app).post('/login').send(userLoginMailFail);
 
     expect(chaiHttpResponse).to.have.status(401);
@@ -44,7 +44,7 @@ describe('Teste de integração: Login', () => {
     expect(chaiHttpResponse.body.message).to.equal('Incorrect email or password');
   });
 
-  it('Verifica se é possivel fazer login com senha invalida', async () => {
+  it('Check if it is possible to login with invalid password', async () => {
     chaiHttpResponse = await chai.request(app).post('/login').send(userLoginPassFail);
 
     expect(chaiHttpResponse).to.have.status(401);
@@ -53,7 +53,7 @@ describe('Teste de integração: Login', () => {
     expect(chaiHttpResponse.body.message).to.equal('Incorrect email or password');
   });
 
-  it('Verifica se é possivel fazer login com um campo vazio', async () => {
+  it('Checks if it is possible to login with an empty field', async () => {
     chaiHttpResponse = await chai.request(app).post('/login').send(userLoginEmpryBody);
 
     expect(chaiHttpResponse).to.have.status(400);
@@ -62,7 +62,7 @@ describe('Teste de integração: Login', () => {
     expect(chaiHttpResponse.body.message).to.equal('All fields must be filled');
   });
 
-  it('Verifica se é possivel fazer login com um token invalido', async () => {
+  it('Checks if it is possible to login with an invalid token', async () => {
     chaiHttpResponse = await chai.request(app).post('/login').send({
       authorization: "aaa"
   });
@@ -73,7 +73,7 @@ describe('Teste de integração: Login', () => {
     expect(chaiHttpResponse.body.message).to.equal('Token not found');
   });
 
-  it('Verifica se é possível realizar um login com token válido', async () => {
+  it('Checks if it is possible to perform a login with a valid token', async () => {
         beforeEach(async () => {
             chaiHttpResponse = await chai.request(app).get('/login/validate').set({
                 authorization: token
