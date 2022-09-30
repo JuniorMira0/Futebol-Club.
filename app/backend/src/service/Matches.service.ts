@@ -1,3 +1,4 @@
+import { IMatches } from '../interface/Matches.interface';
 import MatchesModel from '../database/models/MatchesModel';
 import TeamsModel from '../database/models/TeamsModel';
 
@@ -22,5 +23,23 @@ export default class MatchesService {
       include: modelsConnect,
     });
     return matchFiltered;
+  }
+
+  static async create(body: IMatches) {
+    const { homeTeam, awayTeam, homeTeamGoals, awayTeamGoals } = body;
+
+    const createMatch = await MatchesModel.create({
+      homeTeam,
+      awayTeam,
+      homeTeamGoals,
+      awayTeamGoals,
+      inProgress: true,
+    });
+    return createMatch;
+  }
+
+  static async finish(id: number) {
+    const finishMatch = await MatchesModel.update({ inProgress: false }, { where: { id } });
+    return finishMatch;
   }
 }
