@@ -789,3 +789,10 @@ export const allMatchesInprogessTrue = [
       }
   }
 ]
+
+export const equalTeams = {
+  "homeTeam": 1,
+  "awayTeam": 1,
+  "homeTeamGoals": 2,
+  "awayTeamGoals": 2
+}
