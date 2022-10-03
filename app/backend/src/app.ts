@@ -3,6 +3,7 @@ import * as cors from 'cors';
 import RouterLogin from './routers/Login.router';
 import RouteTeams from './routers/Teams.router';
 import RouterMatches from './routers/Matches.router';
+import LeaderboardRouter from './routers/Leaderboard.router';
 
 class App {
   public app: express.Express;
@@ -35,6 +36,7 @@ class App {
       new RouterLogin().router,
       new RouteTeams().router,
       new RouterMatches().router,
+      new LeaderboardRouter().router,
     );
   }
 
