@@ -4,17 +4,32 @@ Aqui você vai encontrar os detalhes de como foi o desenvolvimento do  projeto.
 ---
 ### Desenvolvimento
 
-Este foi o projeto de que exercitamos os conceitos de POO (Programação Orientada à Objetos) e SOLID.
+O intuito deste projeto foi juntar todos os aprendizados já obtidos ao longo do módulo de Back End e realizar a integração com uma aplicação já existente no Front End. Entre os conceitos aplicados, vale destacar:
 
-Nele, fomos responsáveis por criar um jogo de RPG, inspirado nos antigos Dungeons & Dragons. Para isso, criamos algumas interfaces e criamos também classes que implementam essas interfaces.
+- Docker e Docker-compose;
+- MySQL/SQL Server;
+- API com Express;
+- Arquitetura MSC;
+- Mocha, Chai e Sinon para os testes;
+- Autenticação com JSONWebToken;
+- Sequelize;
+- TypeScript;
+- POO (Programação Orientada à Objetos);
+- SOLID.
+Tudo isso rodando no motor do NodeJs.
 
-Depois de criados todos os chars, criamos também classes que fazem eles batalharem entre si!
+Para o desenvolvimento, ficamos responsáveis por criar uma API que gerencia um Brasileirão! Nele, conseguimos obter as classificações geral dos times, a classificação dos mandantes e dos visitantes. Além disso, se autenticado, conseguimos adicionar, editar ou excluir partidas.
+
 ---
 ### Habilidades
 
-- Exercitar os conceitos de SOLID;
-- Desenvolver uma aplicação através do paradigma POO;
-- Utilizar dos conceitos de Herança para criar classes genéricas;
+- Utilizar o TypeScript para desenvolver uma API;
+- Tipar os principais recursos do Express;
+- Validar o usuário através do JSON Web Token;
+- Testar a aplicação com o Mocha, Chai e Sinon;
+- Manipular e gerenciar tabelas no banco de dados, através de ORM;
+- Desenvolver uma aplicaçao através do paradigma POO;
+- Autenticar usuários com o JSONWebToken.
 ---
 O projeto é composto de 4 entidades importantes para sua estrutura:
 
