@@ -2,6 +2,13 @@
 
 Aqui você vai encontrar os detalhes de como foi o desenvolvimento do  projeto.
 ---
+
+API POSTMAN DOCUMENTATION
+
+https://documenter.getpostman.com/view/23229153/2s847LLqZG
+
+---
+
 ### Desenvolvimento
 
 O intuito deste projeto foi juntar todos os aprendizados já obtidos ao longo do módulo de Back End e realizar a integração com uma aplicação já existente no Front End. Entre os conceitos aplicados, vale destacar:
